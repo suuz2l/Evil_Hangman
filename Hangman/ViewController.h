@@ -15,8 +15,10 @@
 @property (nonatomic, strong) IBOutlet UIButton * gameButton;
 @property (nonatomic, strong) IBOutlet UILabel * wordLabel;
 @property (nonatomic, strong) IBOutlet UILabel * guessesLabel;
-
-
+@property (nonatomic, strong) IBOutlet UISlider * lettersSlider;
+@property (nonatomic, strong) IBOutlet UISlider * guessesSlider;
+@property (nonatomic, strong) IBOutlet UILabel * numGuessesLabel;
+@property (nonatomic, strong) IBOutlet UILabel * numLettersLabel;
 
 @end
 

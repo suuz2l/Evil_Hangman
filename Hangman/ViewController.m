@@ -21,8 +21,6 @@
     self.textField.hidden = YES;
     
     [self.textField becomeFirstResponder];
-
-    
 }
 
 - (void)didReceiveMemoryWarning {
