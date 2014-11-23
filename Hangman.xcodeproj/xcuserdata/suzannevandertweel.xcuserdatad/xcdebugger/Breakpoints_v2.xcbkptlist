@@ -40,13 +40,59 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Hangman/ViewController.h"
-            timestampString = "438301050.227674"
+            timestampString = "438439904.852618"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "14"
-            endingLineNumber = "14"
-            landmarkName = "_settingsbutton"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "gameButton"
             landmarkType = "19">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Hangman/ViewController.h"
+            timestampString = "438439004.435493"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "13"
+            endingLineNumber = "13"
+            landmarkName = "textField"
+            landmarkType = "19">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ViewController textField]"
+                  moduleName = "Hangman"
+                  urlString = "file:///Users/suzannevandertweel/Dropbox/Uva/Informatiekunde/App%20Studio/Evil%20Hangman/Evil_Hangman/Hangman/ViewController.h"
+                  timestampString = "438439905.157638"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ViewController setTextField:]"
+                  moduleName = "Hangman"
+                  urlString = "file:///Users/suzannevandertweel/Dropbox/Uva/Informatiekunde/App%20Studio/Evil%20Hangman/Evil_Hangman/Hangman/ViewController.h"
+                  timestampString = "438439905.157926"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "20">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

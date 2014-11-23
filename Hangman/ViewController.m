@@ -13,14 +13,14 @@
 @end
 
 @implementation ViewController
-@synthesize textField = _textField;
+@synthesize textField = textField;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    self._textField.hidden = YES;
+    self.textField.hidden = YES;
     
-    [self._textField becomeFirstResponder];
+    [self.textField becomeFirstResponder];
 
     
 }

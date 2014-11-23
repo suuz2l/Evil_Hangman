@@ -10,7 +10,13 @@
 
 @interface ViewController : UIViewController
 
-@property (nonatomic, readwrite, weak) IBOutlet UITextField * _textField;
-@property (nonatomic, strong) IBOutlet UIButton * _settingsbutton;
+@property (nonatomic, readwrite, weak) IBOutlet UITextField * textField;
+@property (nonatomic, strong) IBOutlet UIButton * settingsButton;
+@property (nonatomic, strong) IBOutlet UIButton * gameButton;
+@property (nonatomic, strong) IBOutlet UILabel * wordLabel;
+@property (nonatomic, strong) IBOutlet UILabel * guessesLabel;
+
+
+
 @end
 
