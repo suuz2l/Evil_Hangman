@@ -20,38 +20,47 @@
    
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    // maak een dict van alle worden in de plist file;
-    
+    // hide the texfield and put the keyboard up as standard
     self.textField.hidden = YES;
     [self.textField becomeFirstResponder];
     
-    
     [self wordList];
+    
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    //vraag waarde op voor letters
+    //zo nee standaard waarde en anders
+    
+    
+    
+    
     NSUInteger letters = [defaults integerForKey:@"letters"];
-    NSUInteger guesses = [defaults integerForKey:@"guesses"];
-    NSMutableString *wordformat = [NSMutableString new];
-
-    
-    for (int i = 1; i <= letters; i++) {
-        [wordformat appendString:@"_ "];
+    NSLog(@"%lu", (unsigned long)letters);
+    if(letters== 0){
+        
+        [defaults setInteger:7 forKey:@"letters"];
+        
     }
-    self.wordLabel.text = wordformat;
     
-    NSLog(@"@", letters);
-    NSLog(@"@", guesses);
+    letters = [defaults integerForKey:@"letters"];
+    NSLog(@"%lu", (unsigned long)letters);
+    
+    NSUInteger guesses = [defaults integerForKey:@"guesses"];
+    NSMutableString *word = [NSMutableString new];
 
-    self.guessesLabel.text = [NSString stringWithFormat:@"Guesses left: %d", (int)guesses];
+    //update the length of the string with the number of letters
+    for (int i = 1; i <= letters; i++) {
+        [word appendString:@"_ "];
+    }
+    self.wordLabel.text = word;
+    
 
-    
-    
-    
+    self.guessesLabel.text = [NSString stringWithFormat:@"%d Guesses left", (int)guesses];
     
     
 }
 
 - (void)wordList {
-    
+    // create an array of all the words in the plist file
     NSString *path = [[NSBundle mainBundle] pathForResource:@"words_short" ofType:@"plist"];
     NSArray *words = [[NSArray alloc] initWithContentsOfFile:path];
     
