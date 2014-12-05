@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CF5A89851A1FA0D90026031A /* words.plist in Resources */ = {isa = PBXBuildFile; fileRef = CF5A89841A1FA0D90026031A /* words.plist */; };
-		CF5A89861A1FA0D90026031A /* words.plist in Resources */ = {isa = PBXBuildFile; fileRef = CF5A89841A1FA0D90026031A /* words.plist */; };
+		CF111C061A235EE300836D6C /* FlipsideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF111C051A235EE300836D6C /* FlipsideViewController.m */; };
 		CFB892921A1650F2005527D8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CFB892911A1650F2005527D8 /* main.m */; };
 		CFB892951A1650F2005527D8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CFB892941A1650F2005527D8 /* AppDelegate.m */; };
 		CFB892981A1650F2005527D8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFB892971A1650F2005527D8 /* ViewController.m */; };
@@ -16,6 +15,8 @@
 		CFB8929D1A1650F2005527D8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFB8929C1A1650F2005527D8 /* Images.xcassets */; };
 		CFB892A01A1650F2005527D8 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFB8929E1A1650F2005527D8 /* LaunchScreen.xib */; };
 		CFB892AC1A1650F2005527D8 /* HangmanTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CFB892AB1A1650F2005527D8 /* HangmanTests.m */; };
+		CFE27A1C1A2DF8D5007AFD2F /* words_short.plist in Resources */ = {isa = PBXBuildFile; fileRef = CFE27A1A1A2DF8D5007AFD2F /* words_short.plist */; };
+		CFE27A1D1A2DF8D5007AFD2F /* words.plist in Resources */ = {isa = PBXBuildFile; fileRef = CFE27A1B1A2DF8D5007AFD2F /* words.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,7 +30,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		CF5A89841A1FA0D90026031A /* words.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = words.plist; sourceTree = "<group>"; };
+		CF111C041A235EE300836D6C /* FlipsideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlipsideViewController.h; sourceTree = "<group>"; };
+		CF111C051A235EE300836D6C /* FlipsideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlipsideViewController.m; sourceTree = "<group>"; };
 		CFB8928C1A1650F2005527D8 /* Hangman.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hangman.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFB892901A1650F2005527D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CFB892911A1650F2005527D8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -43,6 +45,8 @@
 		CFB892A51A1650F2005527D8 /* HangmanTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HangmanTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFB892AA1A1650F2005527D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CFB892AB1A1650F2005527D8 /* HangmanTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HangmanTests.m; sourceTree = "<group>"; };
+		CFE27A1A1A2DF8D5007AFD2F /* words_short.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = words_short.plist; sourceTree = "<group>"; };
+		CFE27A1B1A2DF8D5007AFD2F /* words.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = words.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +92,8 @@
 				CFB892941A1650F2005527D8 /* AppDelegate.m */,
 				CFB892961A1650F2005527D8 /* ViewController.h */,
 				CFB892971A1650F2005527D8 /* ViewController.m */,
+				CF111C041A235EE300836D6C /* FlipsideViewController.h */,
+				CF111C051A235EE300836D6C /* FlipsideViewController.m */,
 				CFB892991A1650F2005527D8 /* Main.storyboard */,
 				CFB8929C1A1650F2005527D8 /* Images.xcassets */,
 				CFB8929E1A1650F2005527D8 /* LaunchScreen.xib */,
@@ -99,6 +105,8 @@
 		CFB8928F1A1650F2005527D8 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CFE27A1A1A2DF8D5007AFD2F /* words_short.plist */,
+				CFE27A1B1A2DF8D5007AFD2F /* words.plist */,
 				CFB892901A1650F2005527D8 /* Info.plist */,
 				CFB892911A1650F2005527D8 /* main.m */,
 			);
@@ -117,7 +125,6 @@
 		CFB892A91A1650F2005527D8 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				CF5A89841A1FA0D90026031A /* words.plist */,
 				CFB892AA1A1650F2005527D8 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -203,10 +210,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CF5A89851A1FA0D90026031A /* words.plist in Resources */,
 				CFB8929B1A1650F2005527D8 /* Main.storyboard in Resources */,
+				CFE27A1C1A2DF8D5007AFD2F /* words_short.plist in Resources */,
 				CFB892A01A1650F2005527D8 /* LaunchScreen.xib in Resources */,
 				CFB8929D1A1650F2005527D8 /* Images.xcassets in Resources */,
+				CFE27A1D1A2DF8D5007AFD2F /* words.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,7 +222,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CF5A89861A1FA0D90026031A /* words.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,6 +234,7 @@
 			files = (
 				CFB892981A1650F2005527D8 /* ViewController.m in Sources */,
 				CFB892951A1650F2005527D8 /* AppDelegate.m in Sources */,
+				CF111C061A235EE300836D6C /* FlipsideViewController.m in Sources */,
 				CFB892921A1650F2005527D8 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

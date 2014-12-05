@@ -23,7 +23,7 @@
         <!--View Controller-->
         <scene sceneID="ewb-jC-Q2G">
             <objects>
-                <viewController id="hIp-0g-IgL" sceneMemberID="viewController">
+                <viewController id="hIp-0g-IgL" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bjw-e4-Qz1"/>
                         <viewControllerLayoutGuide type="bottom" id="PcW-E8-41t"/>
@@ -38,60 +38,62 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="J9a-Jb-jEt" kind="push" id="pGK-XJ-ggf"/>
+                                    <segue destination="J9a-Jb-jEt" kind="show" id="pGK-XJ-ggf"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gn6-DS-NJs">
-                                <rect key="frame" x="123" y="196" width="97" height="30"/>
+                                <rect key="frame" x="2" y="184" width="301" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <outlet property="delegate" destination="hIp-0g-IgL" id="7nc-HJ-5Re"/>
                                 </connections>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="_ _ _ _" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="znN-NS-omX">
+                                <rect key="frame" x="3" y="155" width="300" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CBE-hR-wSz">
-                                <rect key="frame" x="22" y="80" width="76" height="30"/>
+                                <rect key="frame" x="16" y="80" width="76" height="30"/>
                                 <state key="normal" title="New Game">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="_ _ _ _" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="znN-NS-omX">
-                                <rect key="frame" x="147" y="153" width="49" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N6a-Yh-uhh">
+                                <rect key="frame" x="3" y="227" width="299" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="A B C D E F G H I J" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N6a-Yh-uhh">
-                                <rect key="frame" x="96" y="252" width="150" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text=" K L M N O P Q R S T U V W X Y Z " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Qu-ep-JUt">
-                                <rect key="frame" x="36" y="281" width="270" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="10 guesses" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zyg-zT-RQs">
-                                <rect key="frame" x="123" y="84" width="88" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="guesses" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zyg-zT-RQs">
+                                <rect key="frame" x="0.0" y="318" width="299" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="E6M-AF-tWf"/>
+                    <connections>
+                        <outlet property="gameButton" destination="CBE-hR-wSz" id="GDH-4L-EPJ"/>
+                        <outlet property="guessesLabel" destination="zyg-zT-RQs" id="BBI-Y6-uzt"/>
+                        <outlet property="letterLabel" destination="N6a-Yh-uhh" id="270-z5-eoW"/>
+                        <outlet property="settingsButton" destination="1di-4R-rkv" id="mux-0Z-y2y"/>
+                        <outlet property="textField" destination="Gn6-DS-NJs" id="NIu-dU-RVM"/>
+                        <outlet property="wordLabel" destination="znN-NS-omX" id="0Fv-DS-AP9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pLY-hM-dyk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="52" y="-116"/>
         </scene>
-        <!--View Controller-->
+        <!--Flipside View Controller-->
         <scene sceneID="FJN-nT-SZi">
             <objects>
-                <viewController id="J9a-Jb-jEt" sceneMemberID="viewController">
+                <viewController id="J9a-Jb-jEt" customClass="FlipsideViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="haK-Qp-eAk"/>
                         <viewControllerLayoutGuide type="bottom" id="I9D-IQ-gmh"/>
@@ -100,28 +102,54 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Number of letters" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X8Y-ia-Cyr">
-                                <rect key="frame" x="77" y="139" width="134" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Number of guesses" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ugb-3y-4xx">
-                                <rect key="frame" x="61" y="345" width="150" height="21"/>
+                                <rect key="frame" x="76" y="345" width="150" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Cdt-5u-hUg">
-                                <rect key="frame" x="19" y="194" width="260" height="31"/>
+                                <rect key="frame" x="25" y="194" width="260" height="31"/>
+                                <connections>
+                                    <action selector="SliderValueChanged:" destination="J9a-Jb-jEt" eventType="valueChanged" id="5qb-xa-TpI"/>
+                                </connections>
                             </slider>
                             <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="gfb-VP-cEi">
-                                <rect key="frame" x="14" y="414" width="264" height="31"/>
+                                <rect key="frame" x="21" y="414" width="264" height="31"/>
+                                <connections>
+                                    <action selector="GuessesSliderValueChanged:" destination="J9a-Jb-jEt" eventType="valueChanged" id="zrO-mf-mmJ"/>
+                                </connections>
                             </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iom-y8-4kr">
+                                <rect key="frame" x="26" y="241" width="255" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V7c-4H-vlV">
+                                <rect key="frame" x="21" y="464" width="260" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Number of letters" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X8Y-ia-Cyr">
+                                <rect key="frame" x="84" y="139" width="134" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="INB-Bm-JfJ"/>
+                    <connections>
+                        <outlet property="GuessesLabel" destination="Ugb-3y-4xx" id="QMZ-nO-CjP"/>
+                        <outlet property="LettersLabel" destination="X8Y-ia-Cyr" id="XIc-rt-58H"/>
+                        <outlet property="guessesSlider" destination="gfb-VP-cEi" id="kmW-NS-nlL"/>
+                        <outlet property="lettersSlider" destination="Cdt-5u-hUg" id="qTB-Bw-V6Y"/>
+                        <outlet property="numGuessesLabel" destination="V7c-4H-vlV" id="CR4-g8-eBG"/>
+                        <outlet property="numLettersLabel" destination="Iom-y8-4kr" id="eGe-wt-pPH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hpZ-Ej-roI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
