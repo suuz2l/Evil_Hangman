@@ -12,6 +12,7 @@
 {
     NSMutableDictionary *sortedWords;
     NSMutableArray *alfabet;
+    NSMutableArray *equivalenceClass;
 }
 @end
 
@@ -32,6 +33,8 @@
     
     [self wordList];
     
+    
+    
     //give the standard user default a value when first opening the app
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
@@ -49,6 +52,7 @@
     }
     numGuesses = [defaults integerForKey:@"numGuesses"];
     
+    
     //update the length of the string with the number of letters
     NSMutableString *word = [NSMutableString new];
     
@@ -57,24 +61,24 @@
         [word appendString:@"_ "];
     }
     
-    if ([sortedWords objectForKey:@"numLetters"]) {
-        NSLog(@"yes");
-    
-    }
-    
-   // hoe krijg ik sortedWords hier??
-   // sortedWords[value]
-   // value moet numLetters zijn
-    
-  //  waarom update hij maar 1 letter?
-  //  waarom update hij de settings niet gelijk?
-    
     // show the word and guesses label
     self.wordLabel.text = word;
     self.guessesLabel.text = [NSString stringWithFormat:@"%d Guesses left", numGuesses];
     
     // create alfabet for the available letters left
-     alfabet = [NSMutableArray arrayWithObjects:@"A", @"B",@"C",@"D",@"E",@"F",@"G",@"H",@"I",@"J",@"K",@"L",@"M",@"N",@"O",@"P",@"Q",@"R",@"S",@"T",@"U",@"V",@"W",@"X",@"Y",@"Z", nil];
+    alfabet = [NSMutableArray arrayWithObjects:@"A", @"B",@"C",@"D",@"E",@"F",@"G",@"H",@"I",@"J",@"K",@"L",@"M",@"N",@"O",@"P",@"Q",@"R",@"S",@"T",@"U",@"V",@"W",@"X",@"Y",@"Z", nil];
+    
+    
+    
+    
+    // convert the default value of numLetters into a string
+    NSString *numLettersString = [NSString stringWithFormat: @"%ld", (unsigned long)numLetters];
+    
+    // create a new class of the array that has the value of the default setting
+    equivalenceClass = [sortedWords objectForKey:numLettersString];
+    NSLog(@"%@", equivalenceClass);
+    
+    
     
 }
 
@@ -83,7 +87,6 @@
     // [self wordlist]
     NSString *path = [[NSBundle mainBundle] pathForResource:@"words_short" ofType:@"plist"];
     NSArray *words = [[NSArray alloc] initWithContentsOfFile:path];
-    
     
     sortedWords = [[NSMutableDictionary alloc] init];
     
