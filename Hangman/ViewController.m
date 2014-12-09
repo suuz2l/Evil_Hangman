@@ -13,6 +13,10 @@
     NSMutableDictionary *sortedWords;
     NSMutableArray *alfabet;
     NSMutableArray *equivalenceClass;
+    NSString *letter;
+    NSMutableArray * tempArrayWithLetter;
+    NSMutableArray * tempArrayWithoutLetter;
+
 }
 @end
 
@@ -61,9 +65,11 @@
         [word appendString:@"_ "];
     }
     
+    
+    
     // show the word and guesses label
     self.wordLabel.text = word;
-    self.guessesLabel.text = [NSString stringWithFormat:@"%d Guesses left", numGuesses];
+    self.guessesLabel.text = [NSString stringWithFormat:@"%lu Guesses left", (unsigned long)numGuesses];
     
     // create alfabet for the available letters left
     alfabet = [NSMutableArray arrayWithObjects:@"A", @"B",@"C",@"D",@"E",@"F",@"G",@"H",@"I",@"J",@"K",@"L",@"M",@"N",@"O",@"P",@"Q",@"R",@"S",@"T",@"U",@"V",@"W",@"X",@"Y",@"Z", nil];
@@ -77,10 +83,7 @@
     // create a new class of the array that has the value of the default setting
     equivalenceClass = [sortedWords objectForKey:numLettersString];
     NSLog(@"%@", equivalenceClass);
-    
-    
-    
-}
+   }
 
 - (void)wordList {
     // create an array of all the words in the plist file
@@ -120,16 +123,36 @@
 // maak een array aan met het alphabet en laat die zien, elke keer als gebruiker een letter daarvan kiest moet die uit die label verwijderd worden
 
 // laat de letters zien die al gebruikt zijn
-    - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+    - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:letter
     {
-   
-    NSString * upperString = [string uppercaseString ];
-    [alfabet removeObject:upperString];
-    
+        
+    // convert string into uppercase letter and remove the used letter from alfabet
+    NSString * upperLetter = [letter uppercaseString];
+    [alfabet removeObject:upperLetter];
     
     NSString * alfabetWithSpace = [alfabet componentsJoinedByString:@" "];
     self.alfabetLabel.text = alfabetWithSpace;
     
+        
+    //create an temporaty array for the equivalence classes with or without the used letter
+    tempArrayWithLetter = [[NSMutableArray alloc] init];
+    tempArrayWithoutLetter = [[NSMutableArray alloc] init];
+
+    NSLog(@"%@", letter);
+        
+    //create a class with the words that contains the letter and a class with the words that do not contain the letter
+    for (NSString *word in equivalenceClass){
+        if ([word containsString:upperLetter]){
+            [tempArrayWithLetter addObject:word];
+        }
+        else{
+            [tempArrayWithoutLetter addObject:word];
+        }
+    }
+        
+    NSLog(@"%@", tempArrayWithLetter);
+        NSLog(@"%@", tempArrayWithoutLetter);
+        
     return YES;
 }
 
