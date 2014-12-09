@@ -32,7 +32,7 @@
 /* Begin PBXFileReference section */
 		CF111C041A235EE300836D6C /* FlipsideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlipsideViewController.h; sourceTree = "<group>"; };
 		CF111C051A235EE300836D6C /* FlipsideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlipsideViewController.m; sourceTree = "<group>"; };
-		CFB8928C1A1650F2005527D8 /* Hangman.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hangman.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CFB8928C1A1650F2005527D8 /* Evil Hangman.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Evil Hangman.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFB892901A1650F2005527D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CFB892911A1650F2005527D8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CFB892931A1650F2005527D8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -79,7 +79,7 @@
 		CFB8928D1A1650F2005527D8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CFB8928C1A1650F2005527D8 /* Hangman.app */,
+				CFB8928C1A1650F2005527D8 /* Evil Hangman.app */,
 				CFB892A51A1650F2005527D8 /* HangmanTests.xctest */,
 			);
 			name = Products;
@@ -147,7 +147,7 @@
 			);
 			name = Hangman;
 			productName = Hangman;
-			productReference = CFB8928C1A1650F2005527D8 /* Hangman.app */;
+			productReference = CFB8928C1A1650F2005527D8 /* Evil Hangman.app */;
 			productType = "com.apple.product-type.application";
 		};
 		CFB892A41A1650F2005527D8 /* HangmanTests */ = {
@@ -359,7 +359,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Hangman/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Evil Hangman";
 			};
 			name = Debug;
 		};
@@ -369,7 +369,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Hangman/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Evil Hangman";
 			};
 			name = Release;
 		};

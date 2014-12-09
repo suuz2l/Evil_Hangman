@@ -18,7 +18,8 @@
 @property (nonatomic, strong) IBOutlet UILabel * wordLabel;
 @property (nonatomic, strong) IBOutlet UILabel * guessesLabel;
 @property (weak, nonatomic) IBOutlet UILabel * letterLabel;
-
+@property (nonatomic, strong) IBOutlet UILabel * alfabetLabel;
+@property(readonly) NSUInteger* length;
 - (void) wordList;
 @end
 

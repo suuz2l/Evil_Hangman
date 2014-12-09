@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "CFB8928B1A1650F2005527D8"
-               BuildableName = "Hangman.app"
+               BuildableName = "Evil Hangman.app"
                BlueprintName = "Hangman"
                ReferencedContainer = "container:Hangman.xcodeproj">
             </BuildableReference>
@@ -57,7 +57,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CFB8928B1A1650F2005527D8"
-            BuildableName = "Hangman.app"
+            BuildableName = "Evil Hangman.app"
             BlueprintName = "Hangman"
             ReferencedContainer = "container:Hangman.xcodeproj">
          </BuildableReference>
@@ -76,7 +76,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CFB8928B1A1650F2005527D8"
-            BuildableName = "Hangman.app"
+            BuildableName = "Evil Hangman.app"
             BlueprintName = "Hangman"
             ReferencedContainer = "container:Hangman.xcodeproj">
          </BuildableReference>
@@ -94,7 +94,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CFB8928B1A1650F2005527D8"
-            BuildableName = "Hangman.app"
+            BuildableName = "Evil Hangman.app"
             BlueprintName = "Hangman"
             ReferencedContainer = "container:Hangman.xcodeproj">
          </BuildableReference>

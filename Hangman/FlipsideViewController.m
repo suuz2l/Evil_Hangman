@@ -33,11 +33,11 @@
 
     //Standard User defaults
     NSUserDefaults * defaults = [NSUserDefaults standardUserDefaults];
-    int letters = (int)[defaults integerForKey:@"letters"];
-    int guesses = (int)[defaults integerForKey:@"guesses"];
+    int numLetters = (int)[defaults integerForKey:@"numLetters"];
+    int numGuesses = (int)[defaults integerForKey:@"numGuesses"];
     
-    self.guessesSlider.value = guesses;
-    self.lettersSlider.value = letters;
+    self.guessesSlider.value = numGuesses;
+    self.lettersSlider.value = numLetters;
     self.numLettersLabel.text = [NSString stringWithFormat:@"%.0f", ceilf(self.lettersSlider.value)];
     self.numGuessesLabel.text = [NSString stringWithFormat:@"%.0f", ceilf(self.guessesSlider.value)];
 }
@@ -52,7 +52,7 @@
 - (IBAction)SliderValueChanged:(UISlider *)sender {
     int value = (int)ceilf(sender.value);
     NSUserDefaults * defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setInteger:value forKey:@"letters"];
+    [defaults setInteger:value forKey:@"numLetters"];
     self.numLettersLabel.text = [NSString stringWithFormat:@"%.0f", self.lettersSlider.value];
     [defaults synchronize];
 
@@ -60,9 +60,8 @@
 
 - (IBAction)GuessesSliderValueChanged:(UISlider *)sender {
     int value = (int)ceilf(sender.value);
-    
     NSUserDefaults * defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setInteger:value forKey:@"guesses"];
+    [defaults setInteger:value forKey:@"numGuesses"];
     self.numGuessesLabel.text = [NSString stringWithFormat:@"%.0f", self.guessesSlider.value];
     [defaults synchronize];
 

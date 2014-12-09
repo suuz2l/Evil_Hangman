@@ -9,71 +9,102 @@
 #import "ViewController.h"
 
 @interface ViewController ()
-
+{
+    NSMutableDictionary *sortedWords;
+    NSMutableArray *alfabet;
+}
 @end
 
 @implementation ViewController
 @synthesize textField = textField;
 @synthesize letterLabel = letterLabel;
 
+
+
 - (void)viewDidLoad {
    
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
     // hide the texfield and put the keyboard up as standard
     self.textField.hidden = YES;
     [self.textField becomeFirstResponder];
     
     [self wordList];
     
+    //give the standard user default a value when first opening the app
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    //vraag waarde op voor letters
-    //zo nee standaard waarde en anders
     
-    
-    
-    
-    NSUInteger letters = [defaults integerForKey:@"letters"];
-    NSLog(@"%lu", (unsigned long)letters);
-    if(letters== 0){
-        
-        [defaults setInteger:7 forKey:@"letters"];
-        
+    //set the numLetters value
+    NSUInteger numLetters = [defaults integerForKey:@"numLetters"];
+    if(numLetters== 0){
+        [defaults setInteger:7 forKey:@"numLetters"];
     }
+    numLetters = [defaults integerForKey:@"numLetters"];
     
-    letters = [defaults integerForKey:@"letters"];
-    NSLog(@"%lu", (unsigned long)letters);
+    //set the numGuesses value
+    NSUInteger numGuesses = [defaults integerForKey:@"numGuesses"];
+    if(numGuesses== 0){
+        [defaults setInteger:14 forKey:@"numGuesses"];
+    }
+    numGuesses = [defaults integerForKey:@"numGuesses"];
     
-    NSUInteger guesses = [defaults integerForKey:@"guesses"];
-    NSMutableString *word = [NSMutableString new];
-
     //update the length of the string with the number of letters
-    for (int i = 1; i <= letters; i++) {
+    NSMutableString *word = [NSMutableString new];
+    
+    NSLog(@"%lu", (unsigned long)numLetters);
+    for (int i = 1; i <= numLetters; i++) {
         [word appendString:@"_ "];
     }
+    
+    if ([sortedWords objectForKey:@"numLetters"]) {
+        NSLog(@"yes");
+    
+    }
+    
+   // hoe krijg ik sortedWords hier??
+   // sortedWords[value]
+   // value moet numLetters zijn
+    
+  //  waarom update hij maar 1 letter?
+  //  waarom update hij de settings niet gelijk?
+    
+    // show the word and guesses label
     self.wordLabel.text = word;
+    self.guessesLabel.text = [NSString stringWithFormat:@"%d Guesses left", numGuesses];
     
-
-    self.guessesLabel.text = [NSString stringWithFormat:@"%d Guesses left", (int)guesses];
-    
+    // create alfabet for the available letters left
+     alfabet = [NSMutableArray arrayWithObjects:@"A", @"B",@"C",@"D",@"E",@"F",@"G",@"H",@"I",@"J",@"K",@"L",@"M",@"N",@"O",@"P",@"Q",@"R",@"S",@"T",@"U",@"V",@"W",@"X",@"Y",@"Z", nil];
     
 }
 
 - (void)wordList {
     // create an array of all the words in the plist file
+    // [self wordlist]
     NSString *path = [[NSBundle mainBundle] pathForResource:@"words_short" ofType:@"plist"];
     NSArray *words = [[NSArray alloc] initWithContentsOfFile:path];
     
-    NSLog(@"%@", words);
     
+    sortedWords = [[NSMutableDictionary alloc] init];
+    
+    for (NSString *word in words) {
+        // create NSString object of word length to serve as keys
+        NSUInteger wordLength = [word length];
+        NSString *intString = [NSString stringWithFormat:@"%d", wordLength];
+    
+        if ([sortedWords objectForKey:intString]){
+            // add word to the array in the dictionary
+            [[sortedWords objectForKey:intString] addObject:word];
+        }
+        else{
+            // create new array with word and add key value pair to dictionary
+            NSMutableArray *array = [[NSMutableArray alloc] initWithObjects:word, nil];
+            [sortedWords setObject:array forKey:[NSString stringWithFormat:@"%d", [word length]]];
+        }
+    }
 }
 
--(void)filterWordsLength{
 
-
-
-
-}
 
 //1 voor elk woord ga je eerst kijken hoeveel letters ze hebben en die zet je in een nieuwe array
 //2 aan de hand van de letter die de gebruiker in typt kijk je naar alle woorden die die letter
@@ -86,9 +117,16 @@
 // maak een array aan met het alphabet en laat die zien, elke keer als gebruiker een letter daarvan kiest moet die uit die label verwijderd worden
 
 // laat de letters zien die al gebruikt zijn
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
-{
-    self.letterLabel.text = [NSString stringWithFormat:@"%@%@", self.letterLabel.text, string];
+    - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+    {
+   
+    NSString * upperString = [string uppercaseString ];
+    [alfabet removeObject:upperString];
+    
+    
+    NSString * alfabetWithSpace = [alfabet componentsJoinedByString:@" "];
+    self.alfabetLabel.text = alfabetWithSpace;
+    
     return YES;
 }
 
