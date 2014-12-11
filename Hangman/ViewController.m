@@ -11,12 +11,14 @@
 @interface ViewController ()
 {
     NSMutableDictionary *sortedWords;
+    NSMutableArray *possibleWords;
     NSMutableArray *alfabet;
     NSMutableArray *equivalenceClass;
     NSString *letter;
     NSMutableArray * tempArrayWithLetter;
     NSMutableArray * tempArrayWithoutLetter;
-
+    NSMutableArray * tempArray;
+    NSArray *words;
 }
 @end
 
@@ -36,8 +38,6 @@
     [self.textField becomeFirstResponder];
     
     [self wordList];
-    
-    
     
     //give the standard user default a value when first opening the app
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -65,8 +65,6 @@
         [word appendString:@"_ "];
     }
     
-    
-    
     // show the word and guesses label
     self.wordLabel.text = word;
     self.guessesLabel.text = [NSString stringWithFormat:@"%lu Guesses left", (unsigned long)numGuesses];
@@ -74,40 +72,25 @@
     // create alfabet for the available letters left
     alfabet = [NSMutableArray arrayWithObjects:@"A", @"B",@"C",@"D",@"E",@"F",@"G",@"H",@"I",@"J",@"K",@"L",@"M",@"N",@"O",@"P",@"Q",@"R",@"S",@"T",@"U",@"V",@"W",@"X",@"Y",@"Z", nil];
     
-    
-    
-    
-    // convert the default value of numLetters into a string
-    NSString *numLettersString = [NSString stringWithFormat: @"%ld", (unsigned long)numLetters];
-    
-    // create a new class of the array that has the value of the default setting
-    equivalenceClass = [sortedWords objectForKey:numLettersString];
-    NSLog(@"%@", equivalenceClass);
-   }
+    //create possible wordlist according to the length of the words
+    possibleWords = [[NSMutableArray alloc] init];
+
+    for (NSString *word in words) {
+        if ((int)[word length] == numLetters){
+            [possibleWords addObject:word];
+        }
+    }
+    NSLog(@"%@", possibleWords);
+}
+
 
 - (void)wordList {
     // create an array of all the words in the plist file
     // [self wordlist]
+    
     NSString *path = [[NSBundle mainBundle] pathForResource:@"words_short" ofType:@"plist"];
-    NSArray *words = [[NSArray alloc] initWithContentsOfFile:path];
+    words = [[NSArray alloc] initWithContentsOfFile:path];
     
-    sortedWords = [[NSMutableDictionary alloc] init];
-    
-    for (NSString *word in words) {
-        // create NSString object of word length to serve as keys
-        NSUInteger wordLength = [word length];
-        NSString *intString = [NSString stringWithFormat:@"%d", wordLength];
-    
-        if ([sortedWords objectForKey:intString]){
-            // add word to the array in the dictionary
-            [[sortedWords objectForKey:intString] addObject:word];
-        }
-        else{
-            // create new array with word and add key value pair to dictionary
-            NSMutableArray *array = [[NSMutableArray alloc] initWithObjects:word, nil];
-            [sortedWords setObject:array forKey:[NSString stringWithFormat:@"%d", [word length]]];
-        }
-    }
 }
 
 
@@ -129,6 +112,7 @@
     // convert string into uppercase letter and remove the used letter from alfabet
     NSString * upperLetter = [letter uppercaseString];
     [alfabet removeObject:upperLetter];
+        //[numGuesses -1];
     
     NSString * alfabetWithSpace = [alfabet componentsJoinedByString:@" "];
     self.alfabetLabel.text = alfabetWithSpace;
@@ -137,23 +121,57 @@
     //create an temporaty array for the equivalence classes with or without the used letter
     tempArrayWithLetter = [[NSMutableArray alloc] init];
     tempArrayWithoutLetter = [[NSMutableArray alloc] init];
+    
 
     NSLog(@"%@", letter);
+
+    NSMutableDictionary *convertWords = [[NSMutableDictionary alloc] init];
+    NSMutableArray *sameValueWords = [[NSMutableArray alloc] init];
         
     //create a class with the words that contains the letter and a class with the words that do not contain the letter
-    for (NSString *word in equivalenceClass){
-        if ([word containsString:upperLetter]){
-            [tempArrayWithLetter addObject:word];
+    for (NSString *word in possibleWords){
+        NSMutableString *tempWord = [[NSMutableString alloc] init];
+        for(int index = 0; index < [word length]; index++){
+            char character = [word characterAtIndex:index];
+            NSString *s = [NSString stringWithFormat:@"%c", character];
+
+            if([s isEqualToString:upperLetter]){
+                [tempWord appendString:[NSString stringWithFormat:@"%@",s]];
+            }
+            else{
+                [tempWord appendString:@"_"];
+            }
+        }
+        // add the converted strings into the dictionary
+        if ([convertWords objectForKey:tempWord]){
+            // add word to dictionary with the converted string as key
+            [[convertWords objectForKey:tempWord] addObject:word];
         }
         else{
-            [tempArrayWithoutLetter addObject:word];
+            // add new array to dictionary for different converted string as key
+            NSMutableArray *array = [[NSMutableArray alloc] initWithObjects:word, nil];
+            [convertWords setObject:array forKey:tempWord];
         }
     }
         
-    NSLog(@"%@", tempArrayWithLetter);
-        NSLog(@"%@", tempArrayWithoutLetter);
+    NSLog(@"Dict with converted words%@", convertWords);
+    
         
+        //find the largest array of words
+    NSInteger lengthArray = 0;
+    for (id key in convertWords) {
+        if ((NSInteger) [[convertWords objectForKey:key] count] > lengthArray){
+            
+            lengthArray = [[convertWords objectForKey:key] count];
+            possibleWords = [convertWords objectForKey:key];
+        }
+        
+    }
+    NSLog(@"%ld", (long)lengthArray);
+    NSLog(@"Possiblewords%@", possibleWords);
+    //NSLog(@"%@", equivalenceClasses);
     return YES;
+        
 }
 
 - (void)didReceiveMemoryWarning {
@@ -162,3 +180,5 @@
 }
 
 @end
+
+
