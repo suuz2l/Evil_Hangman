@@ -2,9 +2,13 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <array>
+	<string>EEECH</string>
 	<string>SEVWORD</string>
+	<string>FFDGH</string>
 	<string>LONGWORD</string>
+	<string>REDFH</string>
 	<string>ZENAGA</string>
+	<string>SDFGH</string>
 	<string>WOUCH</string>
 	<string>VISCIN</string>
 	<string>AARON</string>
