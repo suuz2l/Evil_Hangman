@@ -20,6 +20,9 @@
 @property (weak, nonatomic) IBOutlet UILabel * letterLabel;
 @property (nonatomic, strong) IBOutlet UILabel * alfabetLabel;
 @property(readonly) NSUInteger* length;
+@property NSInteger numGuesses;
+@property NSInteger numLetters;
+
 - (void) wordList;
 @end
 

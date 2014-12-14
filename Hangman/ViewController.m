@@ -21,7 +21,6 @@
     NSArray *words;
     NSMutableArray * wordLabel;
     NSMutableArray * bestWordLabel;
-    
 }
 @end
 
@@ -40,27 +39,36 @@
     self.textField.hidden = YES;
     [self.textField becomeFirstResponder];
     
+    //Load the wordlist
     [self wordList];
+    
+    
     
     //give the standard user default a value when first opening the app
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
     //set the numLetters value
-    NSUInteger numLetters = [defaults integerForKey:@"numLetters"];
+    int numLetters = (int)[defaults integerForKey:@"numLetters"];
+    self.numLetters = numLetters;
+
     if(numLetters== 0){
         [defaults setInteger:7 forKey:@"numLetters"];
     }
     numLetters = [defaults integerForKey:@"numLetters"];
     
-    //set the numGuesses value
-    NSUInteger numGuesses = [defaults integerForKey:@"numGuesses"];
+    //set the numguesses value
+    int numGuesses = (int)[defaults integerForKey:@"numGuesses"];
+    
     if(numGuesses== 0){
         [defaults setInteger:14 forKey:@"numGuesses"];
     }
     numGuesses = [defaults integerForKey:@"numGuesses"];
     
-    wordLabel = [[NSMutableArray alloc] init];
+    self.numGuesses = numGuesses;
+
+    
     //update the length of the string with the number of letters
+    wordLabel = [[NSMutableArray alloc] init];
     for (int i = 1; i <= numLetters; i++) {
         [wordLabel addObject:@"_"];
     }
@@ -89,13 +97,12 @@
     // create an array of all the words in the plist file
     // [self wordlist]
     
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"words_short" ofType:@"plist"];
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"words" ofType:@"plist"];
     words = [[NSArray alloc] initWithContentsOfFile:path];
     
 }
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:letter
     {
-        NSLog(@"TEST");
     // convert string into uppercase letter and remove the used letter from alfabet
     NSString * upperLetter = [letter uppercaseString];
     [alfabet removeObject:upperLetter];
@@ -117,15 +124,11 @@
 
             if([s isEqualToString:upperLetter]){
                 [bestWordLabel addObject:[NSString stringWithFormat:@"%@",s]];
-//                [tempWord appendString:[NSString stringWithFormat:@"%@ ",s]];
             }
             else{
                 [bestWordLabel addObject:@"_"];
-
-                //[tempWord appendString:@"_ "];
             }
         }
-        NSLog(@"best word label%@", bestWordLabel);
         
         // add the converted strings into the dictionary
         if ([convertWords objectForKey:bestWordLabel]){
@@ -142,33 +145,39 @@
     NSLog(@"Dict with converted words%@", convertWords);
     
     //find the largest array of words
-        NSArray *bestKey;
+    NSMutableArray *bestKey;
     NSInteger lengthArray = 0;
     for (id key in convertWords) {
         if ((NSInteger) [[convertWords objectForKey:key] count] > lengthArray){
-            
             lengthArray = [[convertWords objectForKey:key] count];
-
             possibleWords = [convertWords objectForKey:key];
             bestKey = key;
         }
     }
         
-        
-        // if(!([key containsString:[NSString stringWithFormat:@"%@", letter]])){
-        //update guesses value
-        //}
-        
     NSString * key = [bestKey componentsJoinedByString:@" "];
-    self.wordLabel.text = key;
     NSLog(@"key %@", key);
         
-    //waarde label samenvoegen met nieuwe key, array van maken
-    //for loop over de lengte array
+    // update the wordlabel if the guessed letter is good
+    for(int index = 0; index < [bestKey count]; index++){
+        letter = [bestKey objectAtIndex:index];
+        if (!([letter isEqualToString:@"_"])){
+            [wordLabel replaceObjectAtIndex:(index) withObject:letter];
+        }
+    }
+    
+    // update the wordlabel with the guessed letter
+    NSString * shownWord = [wordLabel componentsJoinedByString:@" "];
+    self.wordLabel.text = shownWord;
         
+    if (!([shownWord containsString:upperLetter])) {
+        self.numGuesses --;
+    }
     
-
+    self.guessesLabel.text = [NSString stringWithFormat:@"%lu Guesses left", (unsigned long)self.numGuesses];
     
+        
+    //NSLog(@"%lu", (unsigned long)numGuesses);
     NSLog(@"Possiblewords%@", possibleWords);
     return YES;
         
