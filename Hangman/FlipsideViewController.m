@@ -18,7 +18,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     // Load the list of words
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"words" ofType:@"plist"];
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"words_short" ofType:@"plist"];
     NSArray *words = [[NSArray alloc] initWithContentsOfFile:path];
     
     // Get the longest/shortest length of all the words

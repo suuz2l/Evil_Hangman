@@ -28,7 +28,22 @@
 @synthesize textField = textField;
 @synthesize letterLabel = letterLabel;
 
-
+- (IBAction)gameButton:(id)sender {
+    self.numGuesses = [[NSUserDefaults standardUserDefaults] integerForKey:@"numGuesses"];
+    
+    self.numLetters= [[NSUserDefaults standardUserDefaults] integerForKey:@"numLetters"];
+    
+    wordLabel = [[NSMutableArray alloc] init];
+    for (int i = 1; i <= self.numLetters; i++) {
+        [wordLabel addObject:@"_"];
+        
+    NSString * word = [wordLabel componentsJoinedByString:@" "];
+        
+    // show the word and guesses label
+    self.wordLabel.text = word;
+    self.guessesLabel.text = [NSString stringWithFormat:@"%lu Guesses left", (unsigned long)self.numGuesses];
+    }
+}
 
 - (void)viewDidLoad {
    
@@ -97,10 +112,16 @@
     // create an array of all the words in the plist file
     // [self wordlist]
     
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"words" ofType:@"plist"];
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"words_short" ofType:@"plist"];
     words = [[NSArray alloc] initWithContentsOfFile:path];
     
 }
+
+
+
+
+
+
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:letter
     {
     // convert string into uppercase letter and remove the used letter from alfabet
@@ -182,6 +203,7 @@
     return YES;
         
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
