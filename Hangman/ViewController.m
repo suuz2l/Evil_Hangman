@@ -10,14 +10,8 @@
 
 @interface ViewController ()
 {
-    NSMutableDictionary *sortedWords;
     NSMutableArray *possibleWords;
     NSMutableArray *alphabet;
-    NSMutableArray *equivalenceClass;
-    NSString *letter;
-    NSMutableArray * tempArrayWithLetter;
-    NSMutableArray * tempArrayWithoutLetter;
-    NSMutableArray * tempArray;
     NSArray *words;
     NSMutableArray * wordLabel;
     NSMutableArray * bestWordLabel;

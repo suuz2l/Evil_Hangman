@@ -11,7 +11,6 @@
 
 @interface ViewController : UIViewController 
 
-
 @property (nonatomic, readwrite, weak) IBOutlet UITextField * textField;
 @property (nonatomic, strong) IBOutlet UIButton * settingsButton;
 @property (nonatomic, strong) IBOutlet UIButton * gameButton;
@@ -19,10 +18,8 @@
 @property (nonatomic, strong) IBOutlet UILabel * guessesLabel;
 @property (weak, nonatomic) IBOutlet UILabel * letterLabel;
 @property (nonatomic, strong) IBOutlet UILabel * alfabetLabel;
-@property(readonly) NSUInteger* length;
 @property NSInteger numGuesses;
 @property NSInteger numLetters;
 
-- (void) wordList;
 @end
 

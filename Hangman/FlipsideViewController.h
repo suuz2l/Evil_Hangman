@@ -20,7 +20,4 @@
 -(IBAction)SliderValueChanged:(UISlider *)sender;
 -(IBAction)GuessesSliderValueChanged:(UISlider *)sender;
 
-
-
-
 @end
