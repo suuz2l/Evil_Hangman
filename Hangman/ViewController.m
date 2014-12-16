@@ -12,7 +12,7 @@
 {
     NSMutableDictionary *sortedWords;
     NSMutableArray *possibleWords;
-    NSMutableArray *alfabet;
+    NSMutableArray *alphabet;
     NSMutableArray *equivalenceClass;
     NSString *letter;
     NSMutableArray * tempArrayWithLetter;
@@ -37,7 +37,6 @@
     // create an array of all the words in the plist file
     NSString *path = [[NSBundle mainBundle] pathForResource:@"words" ofType:@"plist"];
     words = [[NSArray alloc] initWithContentsOfFile:path];
-    
 }
 
 // Get the standard user defaults and otherwise set a standard value
@@ -82,9 +81,9 @@
     self.guessesLabel.text = [NSString stringWithFormat:@"%lu Guesses left", (unsigned long)self.numGuesses];
     
     //create alfabet for the available letters
-    alfabet = [NSMutableArray arrayWithObjects:@"A", @"B",@"C",@"D",@"E",@"F",@"G",@"H",@"I",@"J",@"K",@"L",@"M",@"N",@"O",@"P",@"Q",@"R",@"S",@"T",@"U",@"V",@"W",@"X",@"Y",@"Z", nil];
-    NSString * alfabetWithSpace = [alfabet componentsJoinedByString:@" "];
-    self.alfabetLabel.text = alfabetWithSpace;
+    alphabet = [NSMutableArray arrayWithObjects:@"A", @"B",@"C",@"D",@"E",@"F",@"G",@"H",@"I",@"J",@"K",@"L",@"M",@"N",@"O",@"P",@"Q",@"R",@"S",@"T",@"U",@"V",@"W",@"X",@"Y",@"Z", nil];
+    NSString * alphabetWithSpace = [alphabet componentsJoinedByString:@" "];
+    self.alfabetLabel.text = alphabetWithSpace;
 
     //create possible wordlist according to the length of the words
     possibleWords = [[NSMutableArray alloc] init];
@@ -99,9 +98,9 @@
 - (void)Game:letter{
     //delete the guessed letter from the alphabet
     NSString * upperLetter = [letter uppercaseString];
-    [alfabet removeObject:upperLetter];
-    NSString * alfabetWithSpace = [alfabet componentsJoinedByString:@" "];
-    self.alfabetLabel.text = alfabetWithSpace;
+    [alphabet removeObject:upperLetter];
+    NSString * alphabetWithSpace = [alphabet componentsJoinedByString:@" "];
+    self.alfabetLabel.text = alphabetWithSpace;
     
     //create a dictionary with the place of letter as key
     NSMutableDictionary *convertWords = [[NSMutableDictionary alloc] init];
@@ -153,11 +152,13 @@
     shownWord = [wordLabel componentsJoinedByString:@" "];
     self.wordLabel.text = shownWord;
     
+    //decrease the numGuesses if the letter is not in the word
     if (!([shownWord containsString:upperLetter])) {
         self.numGuesses --;
     }
-    
     self.guessesLabel.text = [NSString stringWithFormat:@"%lu Guesses left", (unsigned long)self.numGuesses];
+    
+    //check when the game is won and is lost
     if (!([shownWord containsString:@"_"])) {
         [self gameWon];
     }
@@ -165,13 +166,12 @@
     if(self.numGuesses == 0){
         [self gameOver];
     }
-
 }
 
-// if the letter is invalid show this message
+// If the letter is invalid show this message
 - (void)invalidLetter{
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning"
-                                                    message:@"Invalid character or letter is already chosen!"
+                                                    message:@"Invalid character or letter is already used!"
                                                    delegate:self
                                           cancelButtonTitle:@"Try again"
                                           otherButtonTitles:nil];
@@ -205,7 +205,6 @@
 // Start new game
 - (IBAction)gameButton:(id)sender {
     [self newGame];
-    
 }
 
 // Check if the guessed letter is valid or not and then plays the game
@@ -213,7 +212,7 @@
 {
     NSString * upperLetter = [letter uppercaseString];
     
-    if (!([alfabet containsObject:upperLetter])) {
+    if (!([alphabet containsObject:upperLetter])) {
         [self invalidLetter];
     }
     else{
