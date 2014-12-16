@@ -16,7 +16,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     // Load the list of words
     NSString *path = [[NSBundle mainBundle] pathForResource:@"words" ofType:@"plist"];
     NSArray *words = [[NSArray alloc] initWithContentsOfFile:path];
@@ -41,8 +40,6 @@
     self.numLettersLabel.text = [NSString stringWithFormat:@"%.0f", ceilf(self.lettersSlider.value)];
     self.numGuessesLabel.text = [NSString stringWithFormat:@"%.0f", ceilf(self.guessesSlider.value)];
 }
-
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
